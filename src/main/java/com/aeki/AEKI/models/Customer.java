@@ -8,18 +8,18 @@ public class Customer {
 
     @Id
     @GeneratedValue
-    private long id;
-    @Column
+    private String id;
     private String Name;
+    private String MembershipID;
 
     public Customer() {
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -29,6 +29,14 @@ public class Customer {
 
     public void setName(String name) {
         Name = name;
+    }
+
+    public String getMembershipID() {
+        return MembershipID;
+    }
+
+    public void setMembershipID(String membershipID) {
+        MembershipID = membershipID;
     }
 }
 
