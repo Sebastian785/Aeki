@@ -12,7 +12,7 @@ public class Membership {
     @Id
     @GeneratedValue
     private String id;
-    private String ProductCategoryID;
+    private String productCategoryID;
 
     public Membership() {
     }
@@ -26,10 +26,10 @@ public class Membership {
     }
 
     public String getProductCategoryID() {
-        return ProductCategoryID;
+        return productCategoryID;
     }
 
     public void setProductCategoryID(String productCategoryID) {
-        ProductCategoryID = productCategoryID;
+        this.productCategoryID = productCategoryID;
     }
 }

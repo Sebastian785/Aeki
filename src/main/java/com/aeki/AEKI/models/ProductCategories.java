@@ -12,8 +12,8 @@ public class ProductCategories {
     @Id
     @GeneratedValue
     private String id;
-    private String CategoryName;
-    private String ProductDetailsID;
+    private String categoryName;
+    private String productDetailsID;
 
     public ProductCategories() {
     }
@@ -27,18 +27,18 @@ public class ProductCategories {
     }
 
     public String getCategoryName() {
-        return CategoryName;
+        return categoryName;
     }
 
     public void setCategoryName(String categoryName) {
-        CategoryName = categoryName;
+        this.categoryName = categoryName;
     }
 
     public String getProductDetailsID() {
-        return ProductDetailsID;
+        return productDetailsID;
     }
 
     public void setProductDetailsID(String productDetailsID) {
-        ProductDetailsID = productDetailsID;
+        this.productDetailsID = productDetailsID;
     }
 }

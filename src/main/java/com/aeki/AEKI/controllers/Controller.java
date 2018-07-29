@@ -33,7 +33,7 @@ public class Controller {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/FlavorType")
+    @GetMapping("/flavortype")
     public List<FlavorType> getFlavorType() {
         return flavorTypeRepository.findAll();
     }

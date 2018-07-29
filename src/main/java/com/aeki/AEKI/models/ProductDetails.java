@@ -12,10 +12,10 @@ public class ProductDetails {
     @Id
     @GeneratedValue
     private String id;
-    private String Number;
-    private String Weight;
-    private String Color;
-    private String FlavorTypeID;
+    private String number;
+    private String weight;
+    private String color;
+    private String flavorTypeID;
 
     public ProductDetails() {
     }
@@ -29,34 +29,34 @@ public class ProductDetails {
     }
 
     public String getNumber() {
-        return Number;
+        return number;
     }
 
     public void setNumber(String number) {
-        Number = number;
+        this.number = number;
     }
 
     public String getWeight() {
-        return Weight;
+        return weight;
     }
 
     public void setWeight(String weight) {
-        Weight = weight;
+        this.weight = weight;
     }
 
     public String getColor() {
-        return Color;
+        return color;
     }
 
     public void setColor(String color) {
-        Color = color;
+        this.color = color;
     }
 
     public String getFlavorTypeID() {
-        return FlavorTypeID;
+        return flavorTypeID;
     }
 
     public void setFlavorTypeID(String flavorTypeID) {
-        FlavorTypeID = flavorTypeID;
+        this.flavorTypeID = flavorTypeID;
     }
 }

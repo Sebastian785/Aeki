@@ -9,8 +9,8 @@ public class Customer {
     @Id
     @GeneratedValue
     private String id;
-    private String Name;
-    private String MembershipID;
+    private String name;
+    private String membershipID;
 
     public Customer() {
     }
@@ -24,19 +24,19 @@ public class Customer {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getMembershipID() {
-        return MembershipID;
+        return membershipID;
     }
 
     public void setMembershipID(String membershipID) {
-        MembershipID = membershipID;
+        this.membershipID = membershipID;
     }
 }
 

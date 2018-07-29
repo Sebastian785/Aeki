@@ -1,9 +1,6 @@
 package com.aeki.AEKI.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "FlavorType")
@@ -12,7 +9,8 @@ public class FlavorType {
     @Id
     @GeneratedValue
     private String id;
-    private String FlavorName;
+    @Column(name = "FlavorName")
+    private String flavorName;
 
     public FlavorType() {
     }
@@ -26,10 +24,10 @@ public class FlavorType {
     }
 
     public String getFlavorName() {
-        return FlavorName;
+        return flavorName;
     }
 
     public void setFlavorName(String flavorName) {
-        FlavorName = flavorName;
+        this.flavorName = flavorName;
     }
 }

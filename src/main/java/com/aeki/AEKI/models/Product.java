@@ -12,11 +12,11 @@ public class Product {
     @Id
     @GeneratedValue
     private String id;
-    private String ProductCategoryID;
-    private String ProductName;
-    private String Amount;
-    private String Description;
-    private String DiscountPrice;
+    private String productCategoryID;
+    private String productName;
+    private String amount;
+    private String description;
+    private String discountPrice;
 
     public Product() {
     }
@@ -30,43 +30,43 @@ public class Product {
     }
 
     public String getProductCategoryID() {
-        return ProductCategoryID;
+        return productCategoryID;
     }
 
     public void setProductCategoryID(String productCategoryID) {
-        ProductCategoryID = productCategoryID;
+        this.productCategoryID = productCategoryID;
     }
 
     public String getProductName() {
-        return ProductName;
+        return productName;
     }
 
     public void setProductName(String productName) {
-        ProductName = productName;
+        this.productName = productName;
     }
 
     public String getAmount() {
-        return Amount;
+        return amount;
     }
 
     public void setAmount(String amount) {
-        Amount = amount;
+        this.amount = amount;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getDiscountPrice() {
-        return DiscountPrice;
+        return discountPrice;
     }
 
     public void setDiscountPrice(String discountPrice) {
-        DiscountPrice = discountPrice;
+        this.discountPrice = discountPrice;
     }
 }
 
