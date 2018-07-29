@@ -2,8 +2,10 @@ package com.aeki.AEKI.controllers;
 
 import com.aeki.AEKI.models.Customer;
 import com.aeki.AEKI.models.FlavorType;
+import com.aeki.AEKI.models.Membership;
 import com.aeki.AEKI.repositories.CustomerRepository;
 import com.aeki.AEKI.repositories.FlavorTypeRepository;
+import com.aeki.AEKI.repositories.MembershipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +21,10 @@ public class Controller {
 
     @Autowired
     CustomerRepository customerRepository;
+    @Autowired
     FlavorTypeRepository flavorTypeRepository;
+    @Autowired
+    MembershipRepository membershipRepository;
 
     @GetMapping("/customers")
     public List<Customer> getCustomers() {
@@ -37,6 +42,12 @@ public class Controller {
     public List<FlavorType> getFlavorType() {
         return flavorTypeRepository.findAll();
     }
+
+    @GetMapping("/membership")
+    public List<Membership> getMembership() {
+        return membershipRepository.findAll();
+    }
+
 
 
 }

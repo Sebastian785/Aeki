@@ -9,7 +9,6 @@ public class FlavorType {
     @Id
     @GeneratedValue
     private String id;
-    @Column(name = "FlavorName")
     private String flavorName;
 
     public FlavorType() {
