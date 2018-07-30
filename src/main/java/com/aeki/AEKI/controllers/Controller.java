@@ -1,11 +1,7 @@
 package com.aeki.AEKI.controllers;
 
-import com.aeki.AEKI.models.Customer;
-import com.aeki.AEKI.models.FlavorType;
-import com.aeki.AEKI.models.Membership;
-import com.aeki.AEKI.repositories.CustomerRepository;
-import com.aeki.AEKI.repositories.FlavorTypeRepository;
-import com.aeki.AEKI.repositories.MembershipRepository;
+import com.aeki.AEKI.models.*;
+import com.aeki.AEKI.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +21,13 @@ public class Controller {
     FlavorTypeRepository flavorTypeRepository;
     @Autowired
     MembershipRepository membershipRepository;
+    @Autowired
+    ProductRepository productRepository;
+    @Autowired
+    ProductCategoriesRepository productCategoriesRepository;
+    @Autowired
+    ProductDetailsRepository productDetailsRepository;
+
 
     @GetMapping("/customers")
     public List<Customer> getCustomers() {
@@ -38,16 +41,29 @@ public class Controller {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/flavortype")
-    public List<FlavorType> getFlavorType() {
+    @GetMapping("/flavortypes")
+    public List<FlavorType> getFlavorTypes() {
         return flavorTypeRepository.findAll();
     }
 
-    @GetMapping("/membership")
-    public List<Membership> getMembership() {
+    @GetMapping("/memberships")
+    public List<Membership> getMemberships() {
         return membershipRepository.findAll();
     }
 
+    @GetMapping("/products")
+    public List<Product> getProducts() {
+        return productRepository.findAll();
+    }
 
+    @GetMapping("/productsCategories")
+    public List<ProductCategories> getProductsCategories() {
+        return productCategoriesRepository.findAll();
+    }
+
+    @GetMapping("/productsDetails")
+    public List<ProductDetails> getProductsDetails() {
+        return productDetailsRepository.findAll();
+    }
 
 }
