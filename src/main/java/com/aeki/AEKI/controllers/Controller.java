@@ -4,10 +4,7 @@ import com.aeki.AEKI.models.*;
 import com.aeki.AEKI.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,10 +32,15 @@ public class Controller {
     }
 
     @GetMapping("/customers/{id}")
-    public ResponseEntity<Customer> getCustomerById(@PathVariable("id") String id) {
+    public ResponseEntity<Customer> getCustomerById(@PathVariable("id") Integer id) {
         return customerRepository.findById(id)
                 .map(customer -> ResponseEntity.ok().body(customer))
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/customers")
+    public Customer create(@RequestBody Customer customer){
+        return customerRepository.save(customer);
     }
 
     @GetMapping("/flavortypes")
