@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,6 +19,8 @@ public class Controller {
     FlavorTypeRepository flavorTypeRepository;
     @Autowired
     MembershipRepository membershipRepository;
+    @Autowired
+    OrderRepository orderRepository;
     @Autowired
     ProductRepository productRepository;
     @Autowired
@@ -39,7 +42,7 @@ public class Controller {
     }
 
     @PostMapping("/customers")
-    public Customer create(@RequestBody Customer customer){
+    public Customer createCustomer(@RequestBody Customer customer) {
         return customerRepository.save(customer);
     }
 
@@ -51,6 +54,16 @@ public class Controller {
     @GetMapping("/memberships")
     public List<Membership> getMemberships() {
         return membershipRepository.findAll();
+    }
+
+    @GetMapping("/orders")
+    public ResponseEntity<List<Order>> getOrders() {
+        List<Order> result = new ArrayList<>();
+        List<Order> allOrders = orderRepository.findAll();
+        for (Order o : allOrders) {
+            result.add(o);
+        }
+        return ResponseEntity.ok().body(result);
     }
 
     @GetMapping("/products")
