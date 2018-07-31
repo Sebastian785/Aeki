@@ -17,7 +17,7 @@ public class Product {
     private Integer orderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_Id")
+    @JoinColumn(name = "orderId", insertable=false, updatable=false)
     private Order order;
 
     public Product() {
@@ -75,8 +75,8 @@ public class Product {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
+    public void setOrderId(Integer order_Id) {
+        this.orderId = order_Id;
     }
 }
 
