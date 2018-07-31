@@ -9,7 +9,7 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer order_id;
     @Column
     private String name;
 
@@ -17,4 +17,39 @@ public class Order {
     private List<Product> products;
 
     private Integer customerId;
+
+    public Order() {
+    }
+
+    public Integer getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(Integer order_id) {
+        this.order_id = order_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
 }

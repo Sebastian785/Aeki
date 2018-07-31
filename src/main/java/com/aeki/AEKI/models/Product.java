@@ -8,25 +8,26 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
     private String productCategoryID;
     private String productName;
     private String amount;
     private String description;
     private String discountPrice;
+    private Integer orderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "orderId")
+    @JoinColumn(name = "order_Id")
     private Order order;
 
     public Product() {
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -68,6 +69,14 @@ public class Product {
 
     public void setDiscountPrice(String discountPrice) {
         this.discountPrice = discountPrice;
+    }
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 }
 
