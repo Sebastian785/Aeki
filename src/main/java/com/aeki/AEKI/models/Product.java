@@ -3,7 +3,7 @@ package com.aeki.AEKI.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Product")
+@Table(name = "Product")
 public class Product {
 
     @Id
@@ -14,10 +14,9 @@ public class Product {
     private String amount;
     private String description;
     private String discountPrice;
-    private Integer orderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "orderId", insertable=false, updatable=false)
+    @JoinColumn(name = "orderId")
     private Order order;
 
     public Product() {
@@ -71,12 +70,5 @@ public class Product {
         this.discountPrice = discountPrice;
     }
 
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer order_Id) {
-        this.orderId = order_Id;
-    }
 }
 
