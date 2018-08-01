@@ -1,6 +1,9 @@
 package com.aeki.AEKI.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="Customer")
@@ -11,6 +14,11 @@ public class Customer {
     private Integer id;
     private String name;
     private String membershipID;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "customerOrders")
+    private List<OrderList> orderLists;
+
 
     public Customer() {
     }

@@ -1,5 +1,6 @@
 package com.aeki.AEKI.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -19,7 +20,11 @@ public class OrderList {
     @OneToMany(mappedBy = "orderList")
     private List<Product> products;
 
-    private Integer customerId;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customerId")
+    private Customer customerOrders;
 
     public OrderList() {
     }
@@ -48,21 +53,12 @@ public class OrderList {
         this.products = products;
     }
 
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
-
     @Override
     public String toString() {
         return "OrderList{" +
                 "orderId=" + orderId +
                 ", name='" + name + '\'' +
                 ", products=" + products +
-                ", customerId=" + customerId +
                 '}';
     }
 }
