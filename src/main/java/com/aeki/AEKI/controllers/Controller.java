@@ -57,14 +57,24 @@ public class Controller {
     }
 
     @GetMapping("/orders")
-    public ResponseEntity<List<Order>> getOrders() {
-        List<Order> result = new ArrayList<>();
-        List<Order> allOrders = orderRepository.findAll();
-        for (Order o : allOrders) {
+    public ResponseEntity<List<OrderList>> getOrders() {
+
+//        System.out.println("Products: " + getProducts().toString());
+//        System.out.println("Orders: " + getOrders().toString());
+        List<OrderList> result = new ArrayList<>();
+        List<OrderList> allOrders = orderRepository.findAll();
+        for (OrderList o : allOrders) {
             result.add(o);
         }
         return ResponseEntity.ok().body(result);
     }
+
+
+    @GetMapping("/orderlist")
+    public List<OrderList> getOrderList() {
+        return orderRepository.findAll();
+    }
+
 
     @GetMapping("/products")
     public List<Product> getProducts() {

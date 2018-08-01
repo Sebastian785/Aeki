@@ -1,5 +1,7 @@
 package com.aeki.AEKI.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,9 +17,10 @@ public class Product {
     private String description;
     private String discountPrice;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orderId")
-    private Order order;
+    private OrderList orderList;
 
     public Product() {
     }
@@ -70,5 +73,16 @@ public class Product {
         this.discountPrice = discountPrice;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", productCategoryID='" + productCategoryID + '\'' +
+                ", productName='" + productName + '\'' +
+                ", amount='" + amount + '\'' +
+                ", description='" + description + '\'' +
+                ", discountPrice='" + discountPrice + '\'' +
+                '}';
+    }
 }
 

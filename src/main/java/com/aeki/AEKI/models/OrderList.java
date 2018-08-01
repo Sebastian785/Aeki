@@ -1,11 +1,13 @@
 package com.aeki.AEKI.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="Order")
-public class Order {
+@Table(name = "OrderList")
+public class OrderList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,12 +15,13 @@ public class Order {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "order")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "orderList")
     private List<Product> products;
 
     private Integer customerId;
 
-    public Order() {
+    public OrderList() {
     }
 
     public Integer getOrderId() {
@@ -51,5 +54,15 @@ public class Order {
 
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderList{" +
+                "orderId=" + orderId +
+                ", name='" + name + '\'' +
+                ", products=" + products +
+                ", customerId=" + customerId +
+                '}';
     }
 }
