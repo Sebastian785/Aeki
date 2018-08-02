@@ -22,7 +22,7 @@ public class DataInit {
         List<Membership> membershipList = new ArrayList<>();
 
         membershipList.add(membership);
-        Customer customer = new Customer("Jack", membershipList);
+        Customer customer = new Customer("Sebi", membershipList);
         membership.setCustomer(customer);
 
 

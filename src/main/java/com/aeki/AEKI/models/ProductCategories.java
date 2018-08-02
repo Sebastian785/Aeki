@@ -1,16 +1,13 @@
 package com.aeki.AEKI.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="ProductCategories")
 public class ProductCategories {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String categoryName;
     private Integer productDetailsID;

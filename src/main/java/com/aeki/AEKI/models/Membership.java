@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Membership {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer productCategoryID;
 
