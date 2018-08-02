@@ -6,14 +6,13 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="Customer")
+@Table(name = "Customer")
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String membershipID;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "customerOrders")
@@ -39,12 +38,5 @@ public class Customer {
         this.name = name;
     }
 
-    public String getMembershipID() {
-        return membershipID;
-    }
-
-    public void setMembershipID(String membershipID) {
-        this.membershipID = membershipID;
-    }
 }
 

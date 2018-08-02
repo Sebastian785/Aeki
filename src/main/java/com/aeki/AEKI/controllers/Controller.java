@@ -69,12 +69,10 @@ public class Controller {
         return ResponseEntity.ok().body(result);
     }
 
-
     @GetMapping("/orderlist")
     public List<OrderList> getOrderList() {
         return orderRepository.findAll();
     }
-
 
     @GetMapping("/products")
     public List<Product> getProducts() {
