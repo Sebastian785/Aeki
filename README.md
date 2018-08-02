@@ -21,6 +21,16 @@ get order - response should contain products  and discounts<br />
 will be nice to use spring boot, as starting point : <br />
 https://spring.io/guides/gs/accessing-data-jpa/<br />
 https://spring.io/guides/gs/rest-service/<br />
-
+<br />
+http://localhost:8080/orders (POST)
+<br />
+{
+	"name":"Order 1",
+	"customerId":"1",
+	 "products" : [{
+        "productId":"1",
+        "amount":"10"
+    }]
+}
 
 

@@ -28,18 +28,25 @@ CREATE TABLE aeki.dbo.OrderList (
 	orderId int IDENTITY(1,1) NOT NULL,
 	name varchar(50),
 	customerId int,
+	ordersProductsId int,
 	PRIMARY KEY (orderId)
+);
+
+CREATE TABLE aeki.dbo.OrdersProducts (
+	id int IDENTITY(1,1) NOT NULL,
+	ProductId int,
+    Amount int,
+    originalPrice int,
+    discountPrice int,
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE aeki.dbo.Product (
 	id int IDENTITY(1,1) NOT NULL,
 	ProductCategoryID int NOT NULL,
 	ProductName nvarchar(50) NOT NULL,
-	Amount int NOT NULL,
 	Description varchar(50) NOT NULL,
 	Price int NOT NULL,
-	DiscountPrice int,
-	OrderId int,
 	PRIMARY KEY (id)
 );
 
@@ -65,9 +72,9 @@ INSERT INTO aeki.dbo.Customer(Name) VALUES (N'Claudiu');
 
 INSERT INTO aeki.dbo.Customer(Name) VALUES (N'Razvan');
 
-INSERT INTO aeki.dbo.FlavorType(FlavorName) VALUES (N'Chili');
-
-INSERT INTO aeki.dbo.FlavorType(FlavorName) VALUES (N'Sweet');
+--INSERT INTO aeki.dbo.FlavorType(FlavorName) VALUES (N'Chili');
+--
+--INSERT INTO aeki.dbo.FlavorType(FlavorName) VALUES (N'Sweet');
 
 INSERT INTO aeki.dbo.Membership(ProductCategoryID, customerId, discount) VALUES (1, 1, 20);
 

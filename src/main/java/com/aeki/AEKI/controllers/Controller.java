@@ -2,6 +2,7 @@ package com.aeki.AEKI.controllers;
 
 import com.aeki.AEKI.models.*;
 import com.aeki.AEKI.repositories.*;
+import com.aeki.AEKI.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +16,8 @@ public class Controller {
 
     @Autowired
     CustomerRepository customerRepository;
-    @Autowired
-    FlavorTypeRepository flavorTypeRepository;
+    //    @Autowired
+//    FlavorTypeRepository flavorTypeRepository;
     @Autowired
     MembershipRepository membershipRepository;
     @Autowired
@@ -27,6 +28,9 @@ public class Controller {
     ProductCategoriesRepository productCategoriesRepository;
     @Autowired
     ProductDetailsRepository productDetailsRepository;
+
+    @Autowired
+    OrderService orderService;
 
 
     @GetMapping("/customers")
@@ -46,10 +50,10 @@ public class Controller {
         return customerRepository.save(customer);
     }
 
-    @GetMapping("/flavortypes")
-    public List<FlavorType> getFlavorTypes() {
-        return flavorTypeRepository.findAll();
-    }
+//    @GetMapping("/flavortypes")
+//    public List<FlavorType> getFlavorTypes() {
+//        return flavorTypeRepository.findAll();
+//    }
 
     @GetMapping("/memberships")
     public List<Membership> getMemberships() {
@@ -57,20 +61,20 @@ public class Controller {
     }
 
     @GetMapping("/orders")
-    public ResponseEntity<List<OrderList>> getOrders() {
+    public ResponseEntity<List<Orders>> getOrders() {
 
 //        System.out.println("Products: " + getProducts().toString());
 //        System.out.println("Orders: " + getOrders().toString());
-        List<OrderList> result = new ArrayList<>();
-        List<OrderList> allOrders = orderRepository.findAll();
-        for (OrderList o : allOrders) {
+        List<Orders> result = new ArrayList<>();
+        List<Orders> allOrders = orderRepository.findAll();
+        for (Orders o : allOrders) {
             result.add(o);
         }
         return ResponseEntity.ok().body(result);
     }
 
     @GetMapping("/orderlist")
-    public List<OrderList> getOrderList() {
+    public List<Orders> getOrderList() {
         return orderRepository.findAll();
     }
 
@@ -87,6 +91,11 @@ public class Controller {
     @GetMapping("/productsDetails")
     public List<ProductDetails> getProductsDetails() {
         return productDetailsRepository.findAll();
+    }
+
+    @PostMapping("/orders")
+    public ResponseEntity<Orders> createOrder(@RequestBody OrderRequest orderRequest) {
+        return ResponseEntity.ok().body(orderService.createOrder(orderRequest));
     }
 
 }

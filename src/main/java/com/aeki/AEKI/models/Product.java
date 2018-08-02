@@ -1,7 +1,5 @@
 package com.aeki.AEKI.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import javax.persistence.*;
 
 @Entity
@@ -11,18 +9,24 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String productCategoryID;
+    private Integer productCategoryID;
     private String productName;
-    private String amount;
+    private double price;
     private String description;
-    private String discountPrice;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "orderId")
-    private OrderList orderList;
+//    @JsonBackReference
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "orderId")
+//    private Orders orderList;
 
     public Product() {
+    }
+
+    public Product(Integer productCategoryID, String productName, double price, String description) {
+        this.productCategoryID = productCategoryID;
+        this.productName = productName;
+        this.price = price;
+        this.description = description;
     }
 
     public Integer getId() {
@@ -33,11 +37,11 @@ public class Product {
         this.id = id;
     }
 
-    public String getProductCategoryID() {
+    public Integer getProductCategoryID() {
         return productCategoryID;
     }
 
-    public void setProductCategoryID(String productCategoryID) {
+    public void setProductCategoryID(Integer productCategoryID) {
         this.productCategoryID = productCategoryID;
     }
 
@@ -49,12 +53,12 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getAmount() {
-        return amount;
+    public double getPrice() {
+        return price;
     }
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getDescription() {
@@ -65,13 +69,13 @@ public class Product {
         this.description = description;
     }
 
-    public String getDiscountPrice() {
-        return discountPrice;
-    }
-
-    public void setDiscountPrice(String discountPrice) {
-        this.discountPrice = discountPrice;
-    }
+//    public String getDiscountPrice() {
+//        return discountPrice;
+//    }
+//
+//    public void setDiscountPrice(String discountPrice) {
+//        this.discountPrice = discountPrice;
+//    }
 
     @Override
     public String toString() {
@@ -79,9 +83,7 @@ public class Product {
                 "id=" + id +
                 ", productCategoryID='" + productCategoryID + '\'' +
                 ", productName='" + productName + '\'' +
-                ", amount='" + amount + '\'' +
                 ", description='" + description + '\'' +
-                ", discountPrice='" + discountPrice + '\'' +
                 '}';
     }
 }

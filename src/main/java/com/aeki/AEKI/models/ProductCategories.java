@@ -11,18 +11,25 @@ public class ProductCategories {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Integer id;
     private String categoryName;
-    private String productDetailsID;
+    private Integer productDetailsID;
+    private Integer discountPercent;
 
     public ProductCategories() {
     }
 
-    public String getId() {
+    public ProductCategories(String categoryName, Integer productDetailsID, Integer discountPercent) {
+        this.categoryName = categoryName;
+        this.productDetailsID = productDetailsID;
+        this.discountPercent = discountPercent;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -34,11 +41,19 @@ public class ProductCategories {
         this.categoryName = categoryName;
     }
 
-    public String getProductDetailsID() {
+    public Integer getProductDetailsID() {
         return productDetailsID;
     }
 
-    public void setProductDetailsID(String productDetailsID) {
+    public void setProductDetailsID(Integer productDetailsID) {
         this.productDetailsID = productDetailsID;
+    }
+
+    public Integer getDiscountPercent() {
+        return discountPercent;
+    }
+
+    public void setDiscountPercent(Integer discountPercent) {
+        this.discountPercent = discountPercent;
     }
 }

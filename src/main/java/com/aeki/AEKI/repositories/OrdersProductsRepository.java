@@ -1,10 +1,9 @@
 package com.aeki.AEKI.repositories;
 
-import com.aeki.AEKI.models.ProductCategories;
+import com.aeki.AEKI.models.OrdersProducts;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductCategoriesRepository extends JpaRepository<ProductCategories, Integer> {
+public interface OrdersProductsRepository extends JpaRepository<OrdersProducts, Integer> {
 }
-

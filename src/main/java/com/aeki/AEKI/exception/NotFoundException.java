@@ -1,17 +1,16 @@
 package com.aeki.AEKI.exception;
 
-public class NotFoundException extends Throwable {
+public class NotFoundException extends RuntimeException {
 
-    public class CartNotFoundException extends RuntimeException {
-        private final String id;
+    private final String id;
 
-        public CartNotFoundException(String id) {
-            this.id;
-        }
-
-        @Override
-        public String getMessage() {
-            return String.format("Cart with id %s not foud", id);
-        }
+    public NotFoundException(String id) {
+        this.id = id;
     }
+
+    @Override
+    public String getMessage() {
+        return String.format("Object with id %s not found", id);
+    }
+
 }

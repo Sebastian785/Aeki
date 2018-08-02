@@ -1,7 +1,5 @@
 package com.aeki.AEKI.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,12 +12,20 @@ public class Customer {
     private Integer id;
     private String name;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "customerOrders")
-    private List<OrderList> orderLists;
+//    @JsonManagedReference
+//    @OneToMany(mappedBy = "customerOrders")
+//    private List<Orders> orderLists;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Membership> memberships;
 
 
     public Customer() {
+    }
+
+    public Customer(String name, List<Membership> memberships) {
+        this.name = name;
+        this.memberships = memberships;
     }
 
     public Integer getId() {
@@ -38,5 +44,12 @@ public class Customer {
         this.name = name;
     }
 
+    public List<Membership> getMemberships() {
+        return memberships;
+    }
+
+    public void setMemberships(List<Membership> memberships) {
+        this.memberships = memberships;
+    }
 }
 
