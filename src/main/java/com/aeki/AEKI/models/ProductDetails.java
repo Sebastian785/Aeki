@@ -3,19 +3,19 @@ package com.aeki.AEKI.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="ProductDetails")
+@Table(name = "ProductDetails")
 public class ProductDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String number;
-    private String weight;
+    private Integer number;
+    private Integer weight;
     private String color;
     @Enumerated(EnumType.STRING)
     private FlavorType flavorType;
 
-    public ProductDetails(String number, String weight, String color, FlavorType flavorType) {
+    public ProductDetails(Integer number, Integer weight, String color, FlavorType flavorType) {
         this.number = number;
         this.weight = weight;
         this.color = color;
@@ -33,19 +33,19 @@ public class ProductDetails {
         this.id = id;
     }
 
-    public String getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 
-    public String getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

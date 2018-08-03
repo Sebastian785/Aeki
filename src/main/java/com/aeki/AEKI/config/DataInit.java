@@ -40,8 +40,8 @@ public class DataInit {
                 productCategoriesRepository.save(new ProductCategories("Textiles", 2, 20));
                 productCategoriesRepository.save(new ProductCategories("Hot Dogs", 3, 30));
 
-                productDetailsRepository.save(new ProductDetails("1", "20", null, null));
-                productDetailsRepository.save(new ProductDetails("2", null, "Red", null));
+                productDetailsRepository.save(new ProductDetails(1, 20, null, null));
+                productDetailsRepository.save(new ProductDetails(2, 0, "Red", null));
                 productDetailsRepository.save(new ProductDetails(null, null, null, FlavorType.CHILI));
 
                 productRepository.save(new Product(1, "Chair", 50, "Little Chair"));

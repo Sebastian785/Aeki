@@ -16,8 +16,6 @@ public class Controller {
 
     @Autowired
     CustomerRepository customerRepository;
-    //    @Autowired
-//    FlavorTypeRepository flavorTypeRepository;
     @Autowired
     MembershipRepository membershipRepository;
     @Autowired

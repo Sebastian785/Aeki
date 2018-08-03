@@ -13,10 +13,6 @@ public class OrdersProducts {
     private Integer id;
     private String productName;
 
-//    @JsonManagedReference
-//    @OneToMany(mappedBy = "orders")
-//    private List<Product> products;
-
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "orderId")

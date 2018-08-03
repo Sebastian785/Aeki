@@ -12,10 +12,6 @@ public class Customer {
     private Integer id;
     private String name;
 
-//    @JsonManagedReference
-//    @OneToMany(mappedBy = "customerOrders")
-//    private List<Orders> orderLists;
-
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Membership> memberships;
 
