@@ -1,6 +1,10 @@
 # AEKI
+##### SWAGGER UI:
+    http://localhost:8080/swagger-ui.html
 
-Java programming task <br />
+
+
+#### Java programming task <br />
 You are helping a small startup that wants to compete with IKEA.<br />
 They need a simple system that keeps track of product assortment, customers and sold items. Since they want to compete with IKEA, they will sell furniture, textiles, and hot dogs.<br />
 A few prerequisites:<br />
@@ -22,13 +26,13 @@ will be nice to use spring boot, as starting point : <br />
 https://spring.io/guides/gs/accessing-data-jpa/<br />
 https://spring.io/guides/gs/rest-service/<br />
 <br />
-(jdbc:h2:mem:aeki) - http://localhost:8080/h2-console 
+(jdbc:h2:mem:aeki) - [http://localhost:8080/h2-console](http://localhost:8080/h2-console) 
 <br />
-(POST) - http://localhost:8080/orders
+(POST) - [http://localhost:8080/orders](http://localhost:8080/orders)
 <br />
 <br />
-Exemple 1:
-<br />
+##### Exemple 1:
+```sh
 {
 	"name": "Order 1",
 	"customerId": "1",
@@ -43,12 +47,14 @@ Exemple 1:
 		}
 	]
 }
-<br />
-<br />
+```
+
+
 Exemple 2:
-<br />
+
+```sh
 {
-	"name": "Order 1",
+    "name": "Order 1",
 	"customerId": "2",
 	"products": [
 		{
@@ -65,8 +71,7 @@ Exemple 2:
 		}
 	]
 }
-
-
+```
 
 
 

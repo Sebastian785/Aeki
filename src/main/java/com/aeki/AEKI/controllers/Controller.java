@@ -52,15 +52,6 @@ public class Controller {
         return membershipRepository.findAll();
     }
 
-    @GetMapping("/orders")
-    public ResponseEntity<List<Orders>> getOrders() {
-        List<Orders> result = new ArrayList<>();
-        List<Orders> allOrders = orderRepository.findAll();
-        for (Orders o : allOrders) {
-            result.add(o);
-        }
-        return ResponseEntity.ok().body(result);
-    }
 
     @GetMapping("/orderlist")
     public List<Orders> getOrderList() {
@@ -82,7 +73,17 @@ public class Controller {
         return productDetailsRepository.findAll();
     }
 
-    @PostMapping("/orders")
+    @GetMapping("/orders")
+    public ResponseEntity<List<Orders>> getOrders() {
+        List<Orders> result = new ArrayList<>();
+        List<Orders> allOrders = orderRepository.findAll();
+        for (Orders o : allOrders) {
+            result.add(o);
+        }
+        return ResponseEntity.ok().body(result);
+    }
+
+    @PostMapping("/orders/create")
     public ResponseEntity<Orders> createOrder(@RequestBody OrderRequest orderRequest) {
         return ResponseEntity.ok().body(orderService.createOrder(orderRequest));
     }
