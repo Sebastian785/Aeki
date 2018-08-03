@@ -72,12 +72,12 @@ public class Controller {
         return productRepository.findAll();
     }
 
-    @GetMapping("/productsCategories")
+    @GetMapping("/productCategories")
     public List<ProductCategories> getProductsCategories() {
         return productCategoriesRepository.findAll();
     }
 
-    @GetMapping("/productsDetails")
+    @GetMapping("/productDetails")
     public List<ProductDetails> getProductsDetails() {
         return productDetailsRepository.findAll();
     }

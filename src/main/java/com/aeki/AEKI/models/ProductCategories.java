@@ -10,15 +10,15 @@ public class ProductCategories {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String categoryName;
-    private Integer productDetailsID;
+//    private Integer productDetailsID;
     private Integer discountPercent;
 
     public ProductCategories() {
     }
 
-    public ProductCategories(String categoryName, Integer productDetailsID, Integer discountPercent) {
+    public ProductCategories(String categoryName, Integer discountPercent) {
         this.categoryName = categoryName;
-        this.productDetailsID = productDetailsID;
+//        this.productDetailsID = productDetailsID;
         this.discountPercent = discountPercent;
     }
 
@@ -38,13 +38,13 @@ public class ProductCategories {
         this.categoryName = categoryName;
     }
 
-    public Integer getProductDetailsID() {
-        return productDetailsID;
-    }
-
-    public void setProductDetailsID(Integer productDetailsID) {
-        this.productDetailsID = productDetailsID;
-    }
+//    public Integer getProductDetailsID() {
+//        return productDetailsID;
+//    }
+//
+//    public void setProductDetailsID(Integer productDetailsID) {
+//        this.productDetailsID = productDetailsID;
+//    }
 
     public Integer getDiscountPercent() {
         return discountPercent;

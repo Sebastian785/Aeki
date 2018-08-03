@@ -12,6 +12,8 @@ public class OrdersProducts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String productName;
+    private String description;
+    private String color;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -71,5 +73,13 @@ public class OrdersProducts {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

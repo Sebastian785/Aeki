@@ -1,6 +1,7 @@
 package com.aeki.AEKI.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Product")
@@ -9,7 +10,6 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer productCategoryID;
     private String productName;
     private double price;
     private String description;
@@ -22,8 +22,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Integer productCategoryID, String productName, double price, String description) {
-        this.productCategoryID = productCategoryID;
+    public Product(String productName, double price, String description) {
         this.productName = productName;
         this.price = price;
         this.description = description;
@@ -35,14 +34,6 @@ public class Product {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getProductCategoryID() {
-        return productCategoryID;
-    }
-
-    public void setProductCategoryID(Integer productCategoryID) {
-        this.productCategoryID = productCategoryID;
     }
 
     public String getProductName() {
@@ -69,19 +60,13 @@ public class Product {
         this.description = description;
     }
 
-//    public String getDiscountPrice() {
-//        return discountPrice;
-//    }
-//
-//    public void setDiscountPrice(String discountPrice) {
-//        this.discountPrice = discountPrice;
-//    }
+
 
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", productCategoryID='" + productCategoryID + '\'' +
+                ", productCategoryID='" + '\'' +
                 ", productName='" + productName + '\'' +
                 ", description='" + description + '\'' +
                 '}';

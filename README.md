@@ -26,25 +26,46 @@ https://spring.io/guides/gs/rest-service/<br />
 <br />
 (POST) - http://localhost:8080/orders
 <br />
+<br />
+Exemple 1:
+<br />
 {
 	"name": "Order 1",
 	"customerId": "1",
 	"products": [
 		{
 			"productId": "1",
-			"amount": "10"
+			"amount": "1"
+		},
+		{
+			"productId": "4",
+			"amount": "1"
 		}
 	]
-} 
+}
+<br />
+<br />
+Exemple 2:
 <br />
 {
-	"name":"Order 1",
-	"customerId":"1",
-	 "products" : [{
-        "productId":"1",
-        "amount":"10"
-    }]
+	"name": "Order 1",
+	"customerId": "2",
+	"products": [
+		{
+			"productId": "2",
+			"amount": "1"
+		},
+		{
+			"productId": "3",
+			"amount": "1"
+		},
+		{
+			"productId": "5",
+			"amount": "1"
+		}
+	]
 }
+
 
 
 

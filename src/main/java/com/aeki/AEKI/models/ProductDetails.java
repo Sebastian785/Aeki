@@ -1,5 +1,7 @@
 package com.aeki.AEKI.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,12 +16,16 @@ public class ProductDetails {
     private String color;
     @Enumerated(EnumType.STRING)
     private FlavorType flavorType;
+    private Integer productCategoryId;
+    private Integer productId;
 
-    public ProductDetails(Integer number, Integer weight, String color, FlavorType flavorType) {
+    public ProductDetails(Integer number, Integer weight, String color, FlavorType flavorType, Integer productCategoryId, Integer productId) {
         this.number = number;
         this.weight = weight;
         this.color = color;
         this.flavorType = flavorType;
+        this.productCategoryId = productCategoryId;
+        this.productId=productId;
     }
 
     public ProductDetails() {
@@ -64,4 +70,16 @@ public class ProductDetails {
     public void setFlavorType(FlavorType flavorType) {
         this.flavorType = flavorType;
     }
+
+    public Integer getProductCategoryId() {
+        return productCategoryId;
+    }
+
+    public void setProductCategoryId(Integer productCategoryId) {
+        this.productCategoryId = productCategoryId;
+    }
+
 }
+
+
+

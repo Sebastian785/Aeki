@@ -37,21 +37,21 @@ public class OrderService {
         List<OrdersProducts> ordersProducts = new ArrayList<>();
         Double total = 0.0;
 
-        //get customer
-
 
         Customer customer = customerRepository.findById(orderRequest.getCustomerId()).orElseThrow(() -> new NotFoundException(orderRequest.getCustomerId().toString()));
+        orderResponse.setCustomerName(customer.getName());
         List<Membership> memberships = customer.getMemberships();
 
         for (ProductRequest productRequest : orderRequest.getProducts()) {
             OrdersProducts orderProduct = new OrdersProducts();
             Product product = productRepository.findById(productRequest.getProductId()).orElseThrow(() -> new NotFoundException(productRequest.getProductId().toString()));
-            ProductCategories productCategories = productCategoriesRepository.findById(product.getProductCategoryID()).orElseThrow(() -> new NotFoundException(product.getProductCategoryID().toString()));
+            ProductDetails productDetails = productDetailsRepository.findById(productRequest.getProductId()).orElseThrow(() -> new NotFoundException(productRequest.getProductId().toString()));
+            ProductCategories productCategories = productCategoriesRepository.findById(productDetails.getProductCategoryId()).orElseThrow(() -> new NotFoundException(productDetails.getProductCategoryId().toString()));
 
             Boolean isDiscount = false;
             if (memberships != null) {
                 for (Membership membership : memberships) {
-                    if (membership.getProductCategoryID() == product.getProductCategoryID()) {
+                    if (membership.getProductCategoryID() == productDetails.getProductCategoryId()) {
                         isDiscount = true;
                     }
                 }
@@ -70,7 +70,9 @@ public class OrderService {
             }
 
             orderProduct.setProductName(product.getProductName());
+            orderProduct.setDescription(product.getDescription());
             orderProduct.setOrders(orderResponse);
+
             ordersProducts.add(orderProduct);
         }
 
@@ -78,7 +80,6 @@ public class OrderService {
         orderResponse.setTotalPrice(total);
 
         return orderRepository.save(orderResponse);
+
     }
-
-
 }

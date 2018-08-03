@@ -11,6 +11,7 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderId;
     private String name;
+    private String customerName;
     private Integer customerId;
     private Double totalPrice;
 
@@ -18,11 +19,6 @@ public class Orders {
     @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
     private List<OrdersProducts> ordersProductsList;
 
-
-//    @JsonBackReference
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "customerId")
-//    private Customer customerOrders;
 
     public Orders() {
     }
@@ -49,6 +45,14 @@ public class Orders {
 
     public void setOrdersProductsList(List<OrdersProducts> ordersProductsList) {
         this.ordersProductsList = ordersProductsList;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public Integer getCustomerId() {

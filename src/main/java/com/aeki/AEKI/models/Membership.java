@@ -14,7 +14,7 @@ public class Membership {
     private Integer productCategoryID;
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId")
     private Customer customer;
 
