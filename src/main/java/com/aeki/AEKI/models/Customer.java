@@ -28,6 +28,10 @@ public class Customer {
         this.memberships = memberships;
     }
 
+    public Customer(String name) {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }

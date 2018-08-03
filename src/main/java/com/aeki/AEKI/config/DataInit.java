@@ -15,29 +15,40 @@ public class DataInit {
     public CommandLineRunner loadData(CustomerRepository customerRepository, MembershipRepository membershipRepository,
                                       ProductRepository productRepository, ProductCategoriesRepository productCategoriesRepository,
                                       ProductDetailsRepository productDetailsRepository) {
+        Boolean insert = true;
+        if (insert) {
+            Membership membership = new Membership();
+            membership.setProductCategoryID(1);
 
-        Membership membership = new Membership();
-        membership.setProductCategoryID(1);
+            List<Membership> membershipList = new ArrayList<>();
 
-        List<Membership> membershipList = new ArrayList<>();
-
-        membershipList.add(membership);
-        Customer customer = new Customer("Sebi", membershipList);
-        membership.setCustomer(customer);
+            membershipList.add(membership);
+            Customer customer = new Customer("Sebi", membershipList);
+            membership.setCustomer(customer);
 
 
-        return (args) -> {
-            // save a couple of customers
-            customerRepository.save(customer);
-//            customerRepository.save(new Customer("Chloe"));
+            return (args) -> {
+                // save a couple of customers
+                customerRepository.save(customer);
+                customerRepository.save(new Customer("Claudiu"));
 //            customerRepository.save(new Customer("Kim"));
 //            customerRepository.save(new Customer("David"));
 //            customerRepository.save(new Customer("Michelle"));
-            productDetailsRepository.save(new ProductDetails("10", "5", "red", FlavorType.CHILI));
-            productCategoriesRepository.save(new ProductCategories("Furniture", 1, 10));
-            productRepository.save(new Product(1, "Chair", 10, "Big Chair"));
 
 
-        };
+                productCategoriesRepository.save(new ProductCategories("Furniture", 1, 10));
+                productCategoriesRepository.save(new ProductCategories("Textiles", 2, 20));
+                productCategoriesRepository.save(new ProductCategories("Hot Dogs", 3, 30));
+
+                productDetailsRepository.save(new ProductDetails("1", "20", null, null));
+                productDetailsRepository.save(new ProductDetails("2", null, "Red", null));
+                productDetailsRepository.save(new ProductDetails(null, null, null, FlavorType.CHILI));
+
+                productRepository.save(new Product(1, "Chair", 50, "Little Chair"));
+                productRepository.save(new Product(2, "Carpet", 30, "Small Carpet"));
+
+            };
+        }
+        return null;
     }
 }

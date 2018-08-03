@@ -28,7 +28,6 @@ public class Controller {
     ProductCategoriesRepository productCategoriesRepository;
     @Autowired
     ProductDetailsRepository productDetailsRepository;
-
     @Autowired
     OrderService orderService;
 
@@ -50,11 +49,6 @@ public class Controller {
         return customerRepository.save(customer);
     }
 
-//    @GetMapping("/flavortypes")
-//    public List<FlavorType> getFlavorTypes() {
-//        return flavorTypeRepository.findAll();
-//    }
-
     @GetMapping("/memberships")
     public List<Membership> getMemberships() {
         return membershipRepository.findAll();
@@ -62,9 +56,6 @@ public class Controller {
 
     @GetMapping("/orders")
     public ResponseEntity<List<Orders>> getOrders() {
-
-//        System.out.println("Products: " + getProducts().toString());
-//        System.out.println("Orders: " + getOrders().toString());
         List<Orders> result = new ArrayList<>();
         List<Orders> allOrders = orderRepository.findAll();
         for (Orders o : allOrders) {

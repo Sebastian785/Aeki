@@ -1,5 +1,7 @@
 package com.aeki.AEKI.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Membership {
     private Integer id;
     private Integer productCategoryID;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customerId")
     private Customer customer;
