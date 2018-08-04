@@ -1,8 +1,11 @@
 package com.aeki.AEKI.models;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "Customer")
 public class Customer {
@@ -12,9 +15,12 @@ public class Customer {
     private Integer id;
     private String name;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerId")
     private List<Membership> memberships;
 
+//    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+//    private List<Membership> memberships;
 
     public Customer() {
     }
@@ -25,22 +31,6 @@ public class Customer {
     }
 
     public Customer(String name) {
-        this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 

@@ -1,8 +1,10 @@
 package com.aeki.AEKI.models;
 
-import javax.persistence.*;
-import java.util.List;
+import lombok.Data;
 
+import javax.persistence.*;
+
+@Data
 @Entity
 @Table(name = "Product")
 public class Product {
@@ -28,48 +30,5 @@ public class Product {
         this.description = description;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", productCategoryID='" + '\'' +
-                ", productName='" + productName + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }
 

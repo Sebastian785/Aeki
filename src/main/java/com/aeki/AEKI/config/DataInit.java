@@ -19,23 +19,22 @@ public class DataInit {
     }
 
     @Bean
-    public CommandLineRunner loadData(CustomerRepository customerRepository, MembershipRepository membershipRepository,
-                                      ProductRepository productRepository, ProductCategoriesRepository productCategoriesRepository,
+    public CommandLineRunner loadData(CustomerRepository customerRepository,
+                                      MembershipRepository membershipRepository,
+                                      ProductRepository productRepository,
+                                      ProductCategoriesRepository productCategoriesRepository,
                                       ProductDetailsRepository productDetailsRepository) {
 
         Boolean insert = true;
         if (insert) {
             Membership membership = new Membership();
-
             List<Membership> membershipList = new ArrayList<>();
 
             membershipList.add(createMembership(1));
             membershipList.add(createMembership(3));
 
-
             Customer customer = new Customer("Sebi", membershipList);
             membership.setCustomer(customer);
-
 
             return (args) -> {
                 customerRepository.save(new Customer("Claudiu"));
@@ -66,7 +65,6 @@ public class DataInit {
 //                for (ProductDetails productDetailsAll : productDetails) {
 //                    productDetailsAll.setProducts(product);
 //                }
-
             };
         }
         return null;
