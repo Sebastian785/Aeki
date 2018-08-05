@@ -50,11 +50,11 @@ https://spring.io/guides/gs/rest-service/<br />
 ```
 
 
-Exemple 2:
+##### Exemple 2:
 
 ```sh
 {
-    "name": "Order 1",
+    "name": "Order 2",
 	"customerId": "2",
 	"products": [
 		{
