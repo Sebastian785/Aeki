@@ -70,14 +70,12 @@ public class OrderService {
             orderProduct.setColor(productDetails.getColor());
             orderProduct.setFlavorType(productDetails.getFlavorType());
 
-
             orderProduct.setOrders(orderResponse);
             ordersProducts.add(orderProduct);
         }
 
         orderResponse.setOrdersProductsList(ordersProducts);
         orderResponse.setTotalPrice(total);
-
         return orderRepository.save(orderResponse);
     }
 }

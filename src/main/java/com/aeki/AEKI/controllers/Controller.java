@@ -29,7 +29,6 @@ public class Controller {
     @Autowired
     OrderService orderService;
 
-
     @GetMapping("/customers")
     public List<Customer> getCustomers() {
         return customerRepository.findAll();
@@ -91,5 +90,4 @@ public class Controller {
     public ResponseEntity<Orders> createOrder(@RequestBody OrderRequest orderRequest) {
         return ResponseEntity.ok().body(orderService.createOrder(orderRequest));
     }
-
 }

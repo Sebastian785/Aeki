@@ -21,9 +21,6 @@ public class Customer {
     @JoinColumn(name = "customerId")
     private List<Membership> memberships;
 
-//    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-//    private List<Membership> memberships;
-
     public Customer() {
     }
 
@@ -34,14 +31,6 @@ public class Customer {
 
     public Customer(String name) {
         this.name = name;
-    }
-
-    public List<Membership> getMemberships() {
-        return memberships;
-    }
-
-    public void setMemberships(List<Membership> memberships) {
-        this.memberships = memberships;
     }
 }
 

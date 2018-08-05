@@ -37,4 +37,3 @@ public class SwaggerConfig {
                 null, null, Collections.emptyList());
     }
 }
-
