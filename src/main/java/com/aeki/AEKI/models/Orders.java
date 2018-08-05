@@ -1,5 +1,7 @@
 package com.aeki.AEKI.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,8 +17,8 @@ public class Orders {
     private Integer customerId;
     private Double totalPrice;
 
-    //@JsonManagedReference
-    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<OrdersProducts> ordersProductsList;
 
 

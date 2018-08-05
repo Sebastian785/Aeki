@@ -14,19 +14,14 @@ public class OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
-
     @Autowired
     private OrdersProductsRepository ordersProductsRepository;
-
     @Autowired
     private CustomerRepository customerRepository;
-
     @Autowired
     private ProductRepository productRepository;
-
     @Autowired
     private ProductCategoriesRepository productCategoriesRepository;
-
     @Autowired
     private ProductDetailsRepository productDetailsRepository;
 
@@ -36,7 +31,6 @@ public class OrderService {
         orderResponse.setName(orderRequest.getName());
         List<OrdersProducts> ordersProducts = new ArrayList<>();
         Double total = 0.0;
-
 
         Customer customer = customerRepository.findById(orderRequest.getCustomerId()).orElseThrow(() -> new NotFoundException(orderRequest.getCustomerId().toString()));
         orderResponse.setCustomerName(customer.getName());
@@ -71,8 +65,13 @@ public class OrderService {
 
             orderProduct.setProductName(product.getProductName());
             orderProduct.setDescription(product.getDescription());
-            orderProduct.setOrders(orderResponse);
+            orderProduct.setNumber(productDetails.getNumber());
+            orderProduct.setWeight(productDetails.getWeight());
+            orderProduct.setColor(productDetails.getColor());
+            orderProduct.setFlavorType(productDetails.getFlavorType());
 
+
+            orderProduct.setOrders(orderResponse);
             ordersProducts.add(orderProduct);
         }
 
@@ -80,6 +79,5 @@ public class OrderService {
         orderResponse.setTotalPrice(total);
 
         return orderRepository.save(orderResponse);
-
     }
 }
