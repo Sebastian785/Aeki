@@ -45,7 +45,7 @@ public class DataInit {
             membership.setCustomer(customer);
 
             return (args) -> {
-                customerRepository.save(new Customer("Claudiu"));
+                customerRepository.save(new Customer("Codruta"));
                 List<Membership> memberships = customer.getMemberships();
                 for (Membership membershipAll : memberships) {
                     membershipAll.setCustomer(customer);
@@ -77,7 +77,6 @@ public class DataInit {
                         addProductList(new Product("Vegan Hot Dog", "Vegetarian Hot Dog", 50),
                                 new ProductDetails(null, null, null, FlavorType.VEGETARIAN, 3))
                 );
-
                 productRepository.saveAll(productList);
             };
         }

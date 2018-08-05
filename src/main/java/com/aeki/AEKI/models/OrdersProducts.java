@@ -1,12 +1,14 @@
 package com.aeki.AEKI.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Data
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Table(name = "OrdersProducts")
 public class OrdersProducts {
 

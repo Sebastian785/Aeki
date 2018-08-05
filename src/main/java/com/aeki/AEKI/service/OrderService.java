@@ -78,4 +78,13 @@ public class OrderService {
         orderResponse.setTotalPrice(total);
         return orderRepository.save(orderResponse);
     }
+
+    public List<Orders> getOrders(){
+        List<Orders> result = new ArrayList<>();
+        List<Orders> allOrders = orderRepository.findAll();
+        for (Orders o : allOrders) {
+            result.add(o);
+        }
+        return result;
+    }
 }
