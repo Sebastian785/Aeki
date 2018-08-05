@@ -52,7 +52,6 @@ public class Controller {
         return membershipRepository.findAll();
     }
 
-
     @GetMapping("/orderlist")
     public List<Orders> getOrderList() {
         return orderRepository.findAll();
@@ -61,6 +60,11 @@ public class Controller {
     @GetMapping("/products")
     public List<Product> getProducts() {
         return productRepository.findAll();
+    }
+
+    @PostMapping("/product")
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+        return ResponseEntity.ok().body(productRepository.save(product));
     }
 
     @GetMapping("/productCategories")

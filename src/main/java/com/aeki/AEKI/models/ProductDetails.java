@@ -1,9 +1,10 @@
 package com.aeki.AEKI.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import lombok.Data;
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "ProductDetails")
 public class ProductDetails {
@@ -17,18 +18,21 @@ public class ProductDetails {
     @Enumerated(EnumType.STRING)
     private FlavorType flavorType;
     private Integer productCategoryId;
-    private Integer productId;
 
-    public ProductDetails(Integer number, Integer weight, String color, FlavorType flavorType, Integer productCategoryId, Integer productId) {
+    @JsonBackReference
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "productId")
+    private Product product;
+
+    public ProductDetails() {
+    }
+
+    public ProductDetails(Integer number, Integer weight, String color, FlavorType flavorType, Integer productCategoryId) {
         this.number = number;
         this.weight = weight;
         this.color = color;
         this.flavorType = flavorType;
         this.productCategoryId = productCategoryId;
-        this.productId=productId;
-    }
-
-    public ProductDetails() {
     }
 
     public Integer getId() {
@@ -78,7 +82,6 @@ public class ProductDetails {
     public void setProductCategoryId(Integer productCategoryId) {
         this.productCategoryId = productCategoryId;
     }
-
 }
 
 

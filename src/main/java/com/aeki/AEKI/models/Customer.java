@@ -1,5 +1,6 @@
 package com.aeki.AEKI.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ public class Customer {
     private Integer id;
     private String name;
 
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "customerId")
     private List<Membership> memberships;

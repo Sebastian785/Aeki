@@ -1,7 +1,7 @@
 package com.aeki.AEKI.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Data
@@ -16,19 +16,16 @@ public class Product {
     private double price;
     private String description;
 
-//    @JsonBackReference
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "orderId")
-//    private Orders orderList;
+    @JsonManagedReference
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private ProductDetails productDetails;
 
     public Product() {
     }
 
-    public Product(String productName, double price, String description) {
+    public Product(String productName, String description, double price) {
         this.productName = productName;
-        this.price = price;
         this.description = description;
+        this.price = price;
     }
-
 }
-
