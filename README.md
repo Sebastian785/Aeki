@@ -1,17 +1,15 @@
 # AEKI
+
 ##### SWAGGER UI:
     http://localhost:8080/swagger-ui.html
 
-
-
 #### Java <br />
-<br />
 (jdbc:h2:mem:aeki) - [http://localhost:8080/h2-console](http://localhost:8080/h2-console) 
-<br />
+
 (POST) - [http://localhost:8080/orders](http://localhost:8080/orders)
-<br />
-<br />
+
 ##### Exemple 1:
+
 ```sh
 {
 	"name": "Order 1",
